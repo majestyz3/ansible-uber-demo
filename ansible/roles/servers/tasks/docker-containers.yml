@@ -31,10 +31,10 @@
     src: "{{ role_path }}/files/docker/docker-compose.yml"
     dest: ~/docker-compose.yml
 
-- name: Tear down existing services
-  docker_compose:
-    project_src: "~/"
-    state: absent
+#- name: Tear down existing services
+#  docker_compose:
+#    project_src: "~/"
+#    state: absent
 
 - name: Create and start services
   docker_compose:
