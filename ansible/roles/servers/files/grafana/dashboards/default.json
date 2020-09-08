@@ -276,7 +276,7 @@
         "timeFrom": null,
         "timeRegions": [],
         "timeShift": null,
-        "title": "Juice Shop VS Current Conns",
+        "title": "Juice Shop Connections",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -424,7 +424,7 @@
         ],
         "timeFrom": null,
         "timeShift": null,
-        "title": "Juice Shop Violations",
+        "title": "Juice Shop Security Violations",
         "transform": "json",
         "type": "table"
       },
@@ -509,7 +509,7 @@
         "thresholds": "1,10,50",
         "timeFrom": null,
         "timeShift": null,
-        "title": "Juice Shop Violation Locations",
+        "title": "Juice Shop Security Violation Locations",
         "type": "grafana-worldmap-panel",
         "unitPlural": "",
         "unitSingle": "",
