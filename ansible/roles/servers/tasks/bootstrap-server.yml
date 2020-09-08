@@ -39,11 +39,11 @@
     name: docker-compose==1.26.2
 
 
-- name: Create new network interface	
-  import_role:	
+- name: Create new network interface
+  import_role:
     name: ansible-netplan
   when: add_ubuntu_interface
 
-- name: Force netplan apply (ansible-netplan does not seem to be doing it)	
+- name: Force netplan apply (ansible-netplan does not seem to be doing it)
   raw: sudo netplan apply
   when: add_ubuntu_interface
