@@ -3,6 +3,7 @@ services:
   grafana:
     image: grafana/grafana:6.4.3
     restart: unless-stopped
+    command: grafana-cli admin reset-admin-password newpassword
     depends_on:
       - graphite
       - elasticsearch
