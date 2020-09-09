@@ -34,11 +34,11 @@
     name: docker
     enabled: true
 
-#- name: Install Docker Compose Module for Python
-#  pip:
-#    name: docker-compose==1.26.2
-- name: install docker-compose with curl
-  command: curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+- name: Install Docker Compose Module for Python
+  pip:
+    name: docker-compose==1.26.2
+#- name: install docker-compose with curl
+#  command: curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 - name: Create new network interface
   import_role:
