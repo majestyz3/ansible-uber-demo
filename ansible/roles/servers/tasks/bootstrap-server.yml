@@ -40,6 +40,7 @@
 
 - name: install docker-compose with curl
   shell: curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  become: true
 
 - name: Create new network interface
   import_role:
