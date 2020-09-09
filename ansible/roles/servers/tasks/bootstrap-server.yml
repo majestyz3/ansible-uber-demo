@@ -11,7 +11,7 @@
 #    validate_certs: no
 
 - name: remove ansible/ansible
-  apt_respository:
+  apt_repository:
     repo: ppa:ansible/ansible
     state: absent
 
