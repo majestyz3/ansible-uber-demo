@@ -35,7 +35,9 @@
 
 - name: docker-compose up
   become: true
-  shell: docker-compose up ~/docker-compose.yml -d
+  shell: 
+    cmd: docker-compose up -d
+    chdir: ~/
   tags:
     - docker-compose
 #- name: Tear down existing services
