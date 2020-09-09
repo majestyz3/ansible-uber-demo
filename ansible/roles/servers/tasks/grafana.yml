@@ -1,11 +1,11 @@
 ---
-- name: "Restart grafana container"
-  docker_compose:
-    project_src: "~/"
-    services: grafana
-    restarted: true
-    state: present
-  register: output
+#- name: "Restart grafana container"
+#  docker_compose:
+#    project_src: "~/"
+#    services: grafana
+#    restarted: true
+#    state: present
+#  register: output
 
 - name: "Wait for grafana to come up"
   uri:
