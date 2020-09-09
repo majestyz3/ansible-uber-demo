@@ -30,6 +30,8 @@
   copy:
     src: "{{ role_path }}/files/docker/docker-compose.yml"
     dest: ~/docker-compose.yml
+  tags:
+    - docker-compose
 
 - name: docker-compose up
   command: docker-compose up -d
