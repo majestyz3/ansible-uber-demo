@@ -31,14 +31,18 @@
     src: "{{ role_path }}/files/docker/docker-compose.yml"
     dest: ~/docker-compose.yml
 
+- name: docker-compose up
+  command: docker-compose up -d
+  tags:
+    - docker-compose
 #- name: Tear down existing services
 #  docker_compose:
 #    project_src: "~/"
 #    state: absent
 
-- name: Create and start services
-  docker_compose:
-    project_src: "/root/"
-  environment:
-    KAFKA_ADVERTISED_HOST_NAME: "{{ inventory_hostname }}"
-  register: output
+#- name: Create and start services
+#  docker_compose:
+#    project_src: "/root/"
+#  environment:
+#    KAFKA_ADVERTISED_HOST_NAME: "{{ inventory_hostname }}"
+#  register: output
