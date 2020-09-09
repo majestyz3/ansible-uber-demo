@@ -24,9 +24,9 @@
     - curl
     - python3-pip
     - virtualenv
-    - python-setuptools
+    - python3-setuptools
     - rpm
-    - python-jmespath
+    - python3-jmespath
     - docker.io
 
 - name: Make sure Docker service is running and set to automatically start on boot
