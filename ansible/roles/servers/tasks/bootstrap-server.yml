@@ -9,6 +9,10 @@
 #    repo: deb https://download.docker.com/linux/ubuntu focal stable
 #    state: present
 #    validate_certs: no
+- name: remove ansible/ansible
+  apt_respository:
+    repo: ppa:ansible/ansible
+    state: absent
 
 - name: Install required system packages
   apt:
