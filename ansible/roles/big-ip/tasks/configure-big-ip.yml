@@ -76,9 +76,9 @@
     state: present
     provider: "{{ bigip_provider }}"
   delegate_to: localhost
-  until: result.status == 200
   retries: 5
   delay: 10
+  until: "(result is successful) and (result.status == 200)"
 
 - name: Prepare the AS3 Juice Shop application declaration from the template
   template:
