@@ -76,9 +76,11 @@
     state: present
     provider: "{{ bigip_provider }}"
   delegate_to: localhost
+  register: tsas3_result
   retries: 5
   delay: 10
-  until: "(result is successful) and (result.status == 200)"
+  ignore_errors: yes
+  until: tsas3_result is not failed
 
 - name: Prepare the AS3 Juice Shop application declaration from the template
   template:
