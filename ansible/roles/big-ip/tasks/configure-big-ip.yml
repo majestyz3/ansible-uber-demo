@@ -81,6 +81,8 @@
     provider: "{{ bigip_provider }}"
     atc_delay: 10
     atc_retries: 5
+  delegate_to: localhost
+  register: tsas3_result
   ignore_errors: yes
   until: tsas3_result is not failed
 
