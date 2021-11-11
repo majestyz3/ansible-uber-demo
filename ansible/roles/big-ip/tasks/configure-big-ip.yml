@@ -71,14 +71,16 @@
   until: "(result is successful) and (result.status == 200)"
 
 - name: Deploy common AS3 objects for use by Telemetry Streaming
-  bigip_appsvcs_extension:
-    content: "{{ lookup('file', '{{ tmp_dir }}/{{ as3_ts_dependencies_declaration }}') }}"
+  include_role:
+    name: atc_deploy
+  vars:
+    atc_method: POST
+    atc_declaration: "{{ lookup('file', '{{ tmp_dir }}/{{ as3_ts_dependencies_declaration }}') }}"
+    atc_service: AS3
     state: present
     provider: "{{ bigip_provider }}"
-  delegate_to: localhost
-  register: tsas3_result
-  retries: 5
-  delay: 10
+    atc_delay: 10
+    atc_retries: 5
   ignore_errors: yes
   until: tsas3_result is not failed
 
