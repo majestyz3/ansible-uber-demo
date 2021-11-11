@@ -92,12 +92,17 @@
     dest: "{{ tmp_dir }}/{{ as3_juiceshop_declaration }}"
 
 - name: Deploy the Juice Shop app service configuration
-  bigip_appsvcs_extension:
-    content: "{{ lookup('file', '{{ tmp_dir }}/{{ as3_juiceshop_declaration }}') }}"
+  include_role:
+    name: atc_deploy
+  vars:
+    atc_method: POST
+    atc_declaration: "{{ lookup('file', '{{ tmp_dir }}/{{ as3_juiceshop_declaration }}') }}"
+    atc_service: AS3
     state: present
+    atc_delay: 10
+    atc_retries: 5
     provider: "{{ bigip_provider }}"
   delegate_to: localhost
-
 
 - name: Prepare the AS3 Grafana application declaration from the template
   template:
@@ -105,12 +110,18 @@
     dest: "{{ tmp_dir }}/{{ as3_grafana_declaration }}"
 
 - name: Deploy the Grafana app service configuration
-  bigip_appsvcs_extension:
-    content: "{{ lookup('file', '{{ tmp_dir }}/{{ as3_grafana_declaration }}') }}"
+  include_role:
+    name: atc_deploy
+  vars:
+    atc_method: POST
+    atc_declaration: "{{ lookup('file', '{{ tmp_dir }}/{{ as3_grafana_declaration }}') }}"
+    atc_service: AS3
     state: present
+    atc_delay: 10
+    atc_retries: 5
     provider: "{{ bigip_provider }}"
   delegate_to: localhost
-
+  
 
 - name: Prepare the Telemetry Streaming declaration from the template
   template:
